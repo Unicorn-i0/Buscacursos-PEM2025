@@ -19,9 +19,8 @@ const TIME_SLOTS = [
     { start: "15:20", end: "16:50" }, // Slot de 90 min
     { start: "16:50", end: "18:20" }, // Slot de 90 min
     { start: "18:20", end: "19:50" }, // Slot de 90 min
-    // --> BLOQUES CORREGIDOS Y EXTENDIDOS HASTA 22:50
-    { start: "19:50", end: "21:20" }, // Nuevo Slot de 90 min
-    { start: "21:20", end: "22:50" }, // Nuevo Slot de 90 min
+    { start: "19:50", end: "21:20" }, // Slot de 90 min (Hora extra 1)
+    { start: "21:20", end: "22:50" }, // Slot de 90 min (Hora extra 2)
 ];
 
 // Almacenamiento de cursos seleccionados para el horario
