@@ -48,10 +48,13 @@ header {
 
 #schedule-table th, #schedule-table td {
     border: 1px solid #ddd;
-    padding: 8px;
+    /* CAMBIO CLAVE 1: Reducir el padding para que el bloque ocupe más espacio visible de la celda. */
+    padding: 2px; 
     text-align: center;
     height: 50px; 
     position: relative;
+    /* CAMBIO CLAVE 2: Asegura que la altura de 50px incluya el padding y el borde, impidiendo que la celda crezca. */
+    box-sizing: border-box; 
 }
 
 #schedule-table th {
@@ -172,6 +175,12 @@ header {
     margin-bottom: 8px;
     padding: 5px 0;
     border-bottom: 1px dashed #eee;
+    background-color: #ffffff; 
+    transition: background-color 0.2s;
+}
+
+.section-option:hover {
+    background-color: #f0f0ff; 
 }
 
 .section-btn {
@@ -203,6 +212,7 @@ header {
     padding: 5px 10px;
     border-left: 3px solid #ccc;
     flex-grow: 1; /* Permite que ocupe el espacio restante */
+    word-break: break-word;
 }
 /* --- Estilos para la Previsualización (Hover) --- */
 
