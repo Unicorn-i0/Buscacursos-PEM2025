@@ -48,18 +48,21 @@ header {
 
 #schedule-table th, #schedule-table td {
     border: 1px solid #ddd;
-    /* CAMBIO CLAVE 1: Reducir el padding para que el bloque ocupe más espacio visible de la celda. */
-    padding: 2px; 
+    /* CAMBIO CRÍTICO: Eliminar el padding para que la altura de 50px sea exacta para el contenido interno */
+    padding: 0; 
     text-align: center;
     height: 50px; 
     position: relative;
-    /* CAMBIO CLAVE 2: Asegura que la altura de 50px incluya el padding y el borde, impidiendo que la celda crezca. */
     box-sizing: border-box; 
+    /* CAMBIO CRÍTICO: Ocultar cualquier contenido que intente desbordarse y expandir la celda */
+    overflow: hidden;
+    vertical-align: top; /* Ayuda a la alineación vertical sin expandir */
 }
 
 #schedule-table th {
     background-color: #eef;
     color: #004d99;
+    padding: 8px; /* Mantener padding en encabezados */
 }
 
 /* Estilo para un bloque de curso */
@@ -68,7 +71,8 @@ header {
     color: white;
     border-radius: 4px;
     font-size: 12px;
-    padding: 2px;
+    /* Mantener el padding aquí para el texto, pero la celda (td) lo contiene */
+    padding: 2px; 
     cursor: pointer;
     line-height: 1.2;
     overflow: hidden;
@@ -88,8 +92,8 @@ header {
     font-weight: bold;
     color: #666;
     vertical-align: middle;
-    /* Asegura que no se puedan poner bloques de curso encima */
     pointer-events: none; 
+    padding: 8px; /* Devolver padding al almuerzo para centrar el texto */
 }
 
 
@@ -170,7 +174,7 @@ header {
 /* Estilos para mostrar el horario antes de seleccionar */
 
 .section-option {
-    display: flex; /* Alinea el botón y el resumen uno al lado del otro */
+    display: flex; 
     align-items: center;
     margin-bottom: 8px;
     padding: 5px 0;
@@ -184,7 +188,6 @@ header {
 }
 
 .section-btn {
-    /* Estilo del botón de selección */
     margin-right: 15px; 
     padding: 8px 15px;
     background-color: #2196F3;
@@ -192,7 +195,7 @@ header {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    flex-shrink: 0; /* Evita que el botón se achique */
+    flex-shrink: 0; 
 }
 
 .section-btn:hover:not(:disabled) {
@@ -205,22 +208,21 @@ header {
 }
 
 .schedule-summary {
-    /* Estilo del texto del horario */
-    font-size: 0.9em;
-    color: #555;
+    font-size: 0.95em; 
+    color: #333; 
     background-color: #f9f9f9;
     padding: 5px 10px;
-    border-left: 3px solid #ccc;
-    flex-grow: 1; /* Permite que ocupe el espacio restante */
-    word-break: break-word;
+    border-left: 3px solid #673AB7; 
+    flex-grow: 1; 
+    word-break: break-word; 
 }
 /* --- Estilos para la Previsualización (Hover) --- */
 
 .preview-block {
-    opacity: 0.6; /* Un poco transparente para distinguirlo */
-    border: 3px dashed #333; /* Borde punteado para indicar previsualización */
+    opacity: 0.6; 
+    border: 3px dashed #333; 
     color: white;
-    cursor: default !important; /* Muestra que no es interactivo aún */
+    cursor: default !important; 
     font-size: 11px;
     height: 100%;
     display: flex;
@@ -232,56 +234,7 @@ header {
 
 /* Estilo para cuando la previsualización detecta un conflicto */
 .preview-conflict {
-    background-color: #dc3545 !important; /* Rojo fuerte de conflicto */
+    background-color: #dc3545 !important; 
     border: 3px solid #dc3545 !important;
-    animation: none; /* Desactivar la animación de conflicto si ya existe */
-}
-
-/* --- Estilos para mostrar el horario antes de seleccionar --- */
-
-/* Contenedor principal para alinear el botón y el texto */
-.section-option {
-    display: flex; /* Utiliza Flexbox para alineación */
-    align-items: center; /* Centra verticalmente */
-    margin-bottom: 8px;
-    padding: 5px 0;
-    border-bottom: 1px dashed #eee;
-    background-color: #ffffff; /* Fondo claro */
-    transition: background-color 0.2s;
-}
-
-.section-option:hover {
-    background-color: #f0f0ff; /* Efecto suave al pasar el ratón */
-}
-
-/* Estilo del botón de selección */
-.section-btn {
-    margin-right: 15px; 
-    padding: 8px 15px;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    flex-shrink: 0; /* Evita que el botón se achique si el texto es muy largo */
-}
-
-.section-btn:hover:not(:disabled) {
-    background-color: #1a7fc5;
-}
-
-.section-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-/* Estilo del texto del horario (el que no se veía) */
-.schedule-summary {
-    font-size: 0.95em; /* Asegura un tamaño legible */
-    color: #333; /* Color oscuro para contraste */
-    background-color: #f9f9f9;
-    padding: 5px 10px;
-    border-left: 3px solid #673AB7; /* Un borde de color para destacarlo */
-    flex-grow: 1; /* Permite que ocupe el espacio restante */
-    word-break: break-word; /* Para manejar textos largos */
+    animation: none; 
 }
